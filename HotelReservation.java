@@ -12,7 +12,7 @@ public class HotelReservation {
     {
         this.weekendRate=weekendRate;
     }
-    public HotelReservation(String hotelName, int rates) {
+    public HotelReservation(String hotelName, int rates, float weekendrates) {
         this.hotelName = hotelName;
         this.rates = rates;
     }

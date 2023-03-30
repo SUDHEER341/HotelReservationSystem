@@ -1,9 +1,6 @@
 package com.hotelreservationsystem;
 import java.util.Scanner;
 import java.text.ParseException;
-
-//public class HotelReservationRunner {
-//}
 public class HotelReservationRunner {
     Scanner scanner = new Scanner(System.in);
     FindCheapestHotel hotelObj = new FindCheapestHotel();
@@ -53,11 +50,25 @@ public class HotelReservationRunner {
         String checkInDate = scanner.next();
         System.out.println("Enter check-Out Date : (dd/mm/yyyy)");
         String checkOutDate = scanner.next();
+
+        String day1 = findCheapestHotel.findDayWeek(checkInDate);
+        String day2 = findCheapestHotel.findDayWeek(checkOutDate);
+
         int days = FindCheapestHotel.findDate(checkInDate, checkOutDate);
         System.out.println("Number of days stying in hotel " +days);
         HotelReservation cheapestHotel = HotelReservation.findCheapestHotel(days);
         float totalRate = cheapestHotel.getRates() * days;
-        System.out.println("Cheapest hotel is " + cheapestHotel.getHotelName() + " having rate $ " + totalRate);
+
+        HotelReservation cheapestobj2 = cheapestHotel.findCheapestHotel(days);
+        float totalweekendRating = cheapestHotel.getWeekendRate();
+        if(day1.equals("saturday") | day1.equalsIgnoreCase("sunday") | day2.equalsIgnoreCase("saturday") | day2.equalsIgnoreCase("sunday"))
+        {
+            System.out.println("Best hotel in weekend " + cheapestHotel.getHotelName() + "have rating of  $ "+ totalweekendRating);
+        }
+        else {
+
+            System.out.println("Cheapest hotel is " + cheapestHotel.getHotelName() + " have rating of  $ " + totalRate);
+        }
     }
 }
 

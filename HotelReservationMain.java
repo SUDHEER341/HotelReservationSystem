@@ -13,7 +13,7 @@ public class HotelReservationMain {
         System.out.println("Please enter the weekendrate");
         float weekendrates = read.nextFloat();
 
-        HotelReservation hotelReservation = new HotelReservation(hotelName, hotelRates);
+        HotelReservation hotelReservation = new HotelReservation(hotelName, hotelRates,weekendrates);
         List.add(hotelReservation);
         System.out.println(List);
     }
